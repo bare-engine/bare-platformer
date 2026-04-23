@@ -1,0 +1,48 @@
+{
+  "categories": {
+    "characters": {
+      "image": "ℹ",
+      "entries": ["player", "collisionRect"]
+    }
+  },
+  "entities": {
+    "player": {
+      "texture": "player/player_idle",
+      "pivot": {
+        "x": 0.5,
+        "y": 1
+      },
+      "hitbox": "FULL",
+      "components": {
+        "animation": {},
+        "player": {}
+      }
+    },
+    "collisionRect": {
+      "baseEntity": "NONE",
+      "texture": "whitePixel",
+      "color": "#000000",
+      "alpha": 0.4,
+      "imagePath": "",
+      "collide": true,
+      "pivot": {
+        "x": 0,
+        "y": 0
+      },
+      "static": true,
+      "visible": false,
+      "hitbox": "FULL",
+      "components": {
+        "resizable": {}
+      }
+    }
+  },
+  "animations": {
+    "player_idle": {
+      "frames": ["player/player_idle"]
+    },
+    "player_walk": {
+      "frames": ["player/player_walk1#2"]
+    }
+  }
+}
