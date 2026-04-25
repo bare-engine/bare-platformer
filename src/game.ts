@@ -1,12 +1,12 @@
 import settingsDataJson from '../public/assets/data/settingsData.json';
 
-import { AnimationComponent, BareEvent, BarePlugin, cameraHandler, CameraScaleMode, GameObject, LevelData, ParticleComponent, PhysicsObjectBare, Scene, sceneController, StartBare } from 'bare-engine';
+import { AnimationComponent, BareEvent, BarePlugin, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, Scene, sceneController, StartBare } from 'bare-engine';
 import { PhysicsControllerBare } from 'bare-engine/barePhysics';
+import { soundHandler } from 'bare-engine/sound';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
 import { DebugController } from './controllers/debugController';
 import { UI } from './ui';
-import { soundHandler } from 'bare-engine/sound';
 
 declare global
 {
@@ -48,10 +48,13 @@ export class Game extends Scene
 
     async OnStart()
     {
+        // LOAD THE LEVEL
         await this.levelHandler.LoadLevel('level');
 
+        // RESET COINS (THIS METHOD IS EXECUTED ON RESTART TOO)
         this.uiScene.SetCoinAmount(0);
 
+        // LISTEN TO COIN COLLECTED - WIN WHEN NO COLLECTABLES LEFT
         this.events.on("collectableCollected", async ({collectable}) => {
             this.uiScene.AddCoin();
 
@@ -59,34 +62,46 @@ export class Game extends Scene
                                       .filter(obj => (obj != collectable && (obj as any).collide && obj.GetComponent(CollectableComponent))).length;
             if (collectablesLeft == 0)
             {
-                var flag = this.objectController.GetObjectByName("flagYellow");
-                var anim = flag.GetComponent(AnimationComponent);
-
                 await wait(.5);
-                anim.Play('up');
-                soundHandler.playSound("win", {volume: 0.2});
+                this.Win();
             }
         });
 
+        // LISTEN TO GENERAL COLLISION - LOSE WHEN PLAYER COLLIDES WITH SAW
         this.events.on(BareEvent.collision_start, async (object1, object2) => {
             var player = (object1.name == "player" ? object1 : object2.name == "player" ? object2 : null);
             var saw = (object1.name == "saw" ? object1 : object2.name == "saw" ? object2 : null);
             if (player && saw)
             {
-                soundHandler.playSound("lose", {volume: 0.4});
                 player.SetColor("#ff9b9b");
-                await this.Sleep(.75);
-
-                this.Restart();
+                this.Lose();
             }
         });
     }
 
     override OnAfterLoadedLevel(level:LevelData)
     {
+        // SET UP CAMERA
         cameraHandler.SetScaleMode(CameraScaleMode.Contain);
         cameraHandler.SetBoundsToScreen();
         cameraHandler.SetDimensionsToLevel();
+    }
+
+    Win()
+    {
+        soundHandler.playSound("win", {volume: 0.2});
+
+        var flag = this.objectController.GetObjectByName("flagYellow");
+        var anim = flag.GetComponent(AnimationComponent);
+        anim.Play('up');
+    }
+
+    async Lose()
+    {
+        soundHandler.playSound("lose", {volume: 0.4});
+
+        await this.Sleep(.75);
+        this.Restart();
     }
 }
 
