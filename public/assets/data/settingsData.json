@@ -16,7 +16,6 @@
     },
     "collectable": {
       "imagePath": "items",
-      "hitbox": "FULL",
       "pivot": "CENTER",
       "hitboxType": "circle",
       "physicsRadius": 35,
@@ -59,8 +58,8 @@
             },
             "speed": {
               "start": [
-                200,
-                400
+                500,
+                600
               ]
             }
           }
@@ -111,8 +110,21 @@
     "grassRight": {
       "baseEntity": "block"
     },
+    "grassCenter": {
+      "baseEntity": "block"
+    },
     "coinGold": {
       "baseEntity": "collectable"
+    },
+    "saw": {
+      "imagePath": "enemies",
+      "pivot": "CENTER",
+      "hitboxType": "circle",
+      "physicsRadius": 45,
+      "static": true,
+      "components": {
+        "animation": {}
+      }
     }
   },
   "animations": {
@@ -124,12 +136,17 @@
     },
     "player_jump": {
       "frames": ["player/player_jump"]
+    },
+    "saw": {
+      "imagePath": "enemies",
+      "frames": ["saw", "sawMove"],
+      "framesPerSecond": 40
     }
   },
   "settings": {
     "gridEnabled": true,
     "gridSize": 64,
-    "minimized": false
+    "minimized": true
   },
   "layers": ["objects", "background"]
 }
