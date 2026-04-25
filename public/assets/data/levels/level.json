@@ -7,13 +7,6 @@
   "entitiesByLayer": {
     "objects": [
       {
-        "name": "player",
-        "position": {
-          "x": 384,
-          "y": 896
-        }
-      },
-      {
         "name": "grassLeft",
         "position": {
           "x": 64,
@@ -117,6 +110,20 @@
           "x": 576,
           "y": 896
         }
+      },
+      {
+        "name": "flagYellow",
+        "position": {
+          "x": 192,
+          "y": 896
+        }
+      },
+      {
+        "name": "player",
+        "position": {
+          "x": 384,
+          "y": 896
+        }
       }
     ],
     "background": [
@@ -124,7 +131,10 @@
         "name": "blueLand",
         "position": {
           "y": -192
-        }
+        },
+        "componentsRemoved": [
+          "animation"
+        ]
       }
     ]
   },

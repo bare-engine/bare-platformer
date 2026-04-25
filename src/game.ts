@@ -1,6 +1,6 @@
 import settingsDataJson from '../public/assets/data/settingsData.json';
 
-import { AnimationComponent, BareEvent, BarePlugin, cameraHandler, CameraScaleMode, GameObject, LevelData, ParticleComponent, Scene, sceneController, StartBare } from 'bare-engine';
+import { AnimationComponent, BareEvent, BarePlugin, cameraHandler, CameraScaleMode, GameObject, LevelData, ParticleComponent, PhysicsObjectBare, Scene, sceneController, StartBare } from 'bare-engine';
 import { PhysicsControllerBare } from 'bare-engine/barePhysics';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
@@ -52,15 +52,29 @@ export class Game extends Scene
 
         this.uiScene.SetCoinAmount(0);
 
-        this.events.on("collectableCollected", ({collectable}) => {
+        this.events.on("collectableCollected", async ({collectable}) => {
             this.uiScene.AddCoin();
+
+            var collectablesLeft = this.objectController.GetAllObjects()
+                                      .filter(obj => (obj != collectable && (obj as any).collide && obj.GetComponent(CollectableComponent))).length;
+            if (collectablesLeft == 0)
+            {
+                var flag = this.objectController.GetObjectByName("flagYellow");
+                var anim = flag.GetComponent(AnimationComponent);
+
+                await wait(.5);
+                anim.Play('up');
+                soundHandler.playSound("win", {volume: 0.2});
+            }
         });
 
         this.events.on(BareEvent.collision_start, async (object1, object2) => {
-            if (object1.name == "player" && object2.name == "saw")
+            var player = (object1.name == "player" ? object1 : object2.name == "player" ? object2 : null);
+            var saw = (object1.name == "saw" ? object1 : object2.name == "saw" ? object2 : null);
+            if (player && saw)
             {
                 soundHandler.playSound("lose", {volume: 0.4});
-                object1.SetColor("#ff9b9b");
+                player.SetColor("#ff9b9b");
                 await this.Sleep(.75);
 
                 this.Restart();

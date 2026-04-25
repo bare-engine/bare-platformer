@@ -110,11 +110,18 @@
     "grassRight": {
       "baseEntity": "block"
     },
-    "grassCenter": {
-      "baseEntity": "block"
-    },
     "coinGold": {
       "baseEntity": "collectable"
+    },
+    "flagYellow": {
+      "texture": "items/flagYellowDown",
+      "pivot": {
+        "x": 0.5,
+        "y": 1
+      },
+      "components": {
+        "animation": {}
+      }
     },
     "saw": {
       "imagePath": "enemies",
@@ -141,12 +148,16 @@
       "imagePath": "enemies",
       "frames": ["saw", "sawMove"],
       "framesPerSecond": 40
+    },
+    "flagYellow_up": {
+      "frames": ["items/flagYellow1#2"],
+      "framesPerSecond": 5
     }
   },
   "settings": {
     "gridEnabled": true,
     "gridSize": 64,
-    "minimized": true
+    "minimized": false
   },
   "layers": ["objects", "background"]
 }
