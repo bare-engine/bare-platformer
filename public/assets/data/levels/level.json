@@ -10,77 +10,112 @@
         "name": "player",
         "position": {
           "x": 384,
-          "y": 864
+          "y": 896
         }
       },
       {
         "name": "grassLeft",
         "position": {
-          "x": 96,
-          "y": 864
+          "x": 64,
+          "y": 896
         }
       },
       {
         "name": "grassMid",
         "position": {
-          "x": 352,
-          "y": 864
+          "x": 320,
+          "y": 896
         }
       },
       {
         "name": "grassMid",
         "position": {
-          "x": 224,
-          "y": 864
+          "x": 192,
+          "y": 896
         }
       },
       {
         "name": "grassMid",
         "position": {
-          "x": 480,
-          "y": 864
+          "x": 448,
+          "y": 896
         }
       },
       {
         "name": "grassRight",
         "position": {
-          "x": 608,
-          "y": 864
+          "x": 576,
+          "y": 896
         }
       },
       {
         "name": "grassLeft",
         "position": {
           "x": 832,
-          "y": 672
+          "y": 704
         }
       },
       {
         "name": "grassMid",
         "position": {
           "x": 1088,
-          "y": 672
+          "y": 704
         }
       },
       {
         "name": "grassMid",
         "position": {
           "x": 960,
-          "y": 672
+          "y": 704
         }
       },
       {
         "name": "grassMid",
         "position": {
           "x": 1216,
-          "y": 672
+          "y": 704
         }
       },
       {
         "name": "grassRight",
         "position": {
           "x": 1344,
-          "y": 672
+          "y": 704
+        }
+      },
+      {
+        "name": "coinGold",
+        "position": {
+          "x": 896,
+          "y": 576
+        }
+      },
+      {
+        "name": "coinGold",
+        "position": {
+          "x": 1024,
+          "y": 576
+        }
+      },
+      {
+        "name": "coinGold",
+        "position": {
+          "x": 1152,
+          "y": 576
+        }
+      },
+      {
+        "name": "coinGold",
+        "position": {
+          "x": 1280,
+          "y": 576
+        }
+      },
+      {
+        "name": "coinGold",
+        "position": {
+          "x": 1408,
+          "y": 576
         }
       }
     ],
@@ -92,5 +127,6 @@
         }
       }
     ]
-  }
+  },
+  "backgroundColor": "#424242"
 }

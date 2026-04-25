@@ -4,6 +4,7 @@ import { AnimationComponent, BarePlugin, cameraHandler, CameraScaleMode, GameObj
 import { PlayerComponent } from './components/playerComponent';
 import { DebugController } from './controllers/debugController';
 import { PhysicsControllerBare } from 'bare-engine/barePhysics';
+import { CollectableComponent } from './components/collectableComponent';
 
 declare global
 {
@@ -26,6 +27,7 @@ export class Game extends Scene
 
         this.AddClass(PlayerComponent);
         this.AddClass(AnimationComponent);
+        this.AddClass(CollectableComponent);
         this.AddClass(PhysicsControllerBare);
 
         window.debugController = new DebugController(this);

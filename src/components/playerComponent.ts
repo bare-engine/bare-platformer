@@ -15,11 +15,6 @@ export class PlayerComponent extends BaseComponent<PhysicsObjectBare>
     moveSpeed = 500;
     jump = -1600;
 
-    constructor(scene:Scene)
-    {
-        super(scene);
-    }
-
     OnAdded(): void
     {
         this.animationComponent = (this.go as GameObject).GetComponent(AnimationComponent);

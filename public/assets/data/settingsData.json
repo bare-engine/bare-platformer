@@ -9,17 +9,22 @@
     }
   },
   "baseEntities": {
-    "ANY": {
-      "extendClass": "GameObject"
-    },
-    "ANY_ENTITY": {
-      "baseEntity": "ANY",
-      "extendClass": "GameObject"
-    },
     "block": {
       "imagePath": "ground/grass",
       "hitbox": "FULL",
       "static": true
+    },
+    "collectable": {
+      "imagePath": "items",
+      "hitbox": "FULL",
+      "pivot": "CENTER",
+      "hitboxType": "circle",
+      "physicsRadius": 35,
+      "sensor": true,
+      "static": true,
+      "components": {
+        "collectable": {}
+      }
     }
   },
   "entities": {
@@ -64,6 +69,9 @@
     },
     "grassRight": {
       "baseEntity": "block"
+    },
+    "coinGold": {
+      "baseEntity": "collectable"
     }
   },
   "animations": {
@@ -79,14 +87,8 @@
   },
   "settings": {
     "gridEnabled": true,
-    "gridSize": 96,
+    "gridSize": 64,
     "minimized": false
   },
-  "layers": ["objects", "background"],
-  "layersInfo": {
-    "background": {
-      "doSave": true
-    },
-    "objects": {}
-  }
+  "layers": ["objects", "background"]
 }
