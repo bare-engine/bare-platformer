@@ -1,4 +1,4 @@
-import { AnimationComponent, BaseComponent, keyboardController, PhysicsObjectBare, Scene, type GameObject } from "bare-engine";
+import { AnimationComponent, BaseComponent, keyboardController, PhysicsObjectBare, Scene } from "bare-engine";
 
 enum State
 {
@@ -17,7 +17,7 @@ export class PlayerComponent extends BaseComponent<PhysicsObjectBare>
 
     OnAdded(): void
     {
-        this.animationComponent = (this.go as GameObject).GetComponent(AnimationComponent);
+        this.animationComponent = this.go.GetComponent(AnimationComponent);
         this.SetState(State.Idle);
     }
 
@@ -47,7 +47,7 @@ export class PlayerComponent extends BaseComponent<PhysicsObjectBare>
         }
 
         // JUMP
-        if (this.go.IsGrounded() && keyboardController.IsUpPressed())
+        if (this.go.IsGrounded() && (keyboardController.IsUpPressed() || keyboardController.IsKeyPressed(' ')))
         {
             this.go.velocity.y = this.jump;
             this.SetState(State.Jump);

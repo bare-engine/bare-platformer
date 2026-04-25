@@ -86,13 +86,6 @@
       {
         "name": "coinGold",
         "position": {
-          "x": 896,
-          "y": 576
-        }
-      },
-      {
-        "name": "coinGold",
-        "position": {
           "x": 1024,
           "y": 576
         }
@@ -101,20 +94,13 @@
         "name": "coinGold",
         "position": {
           "x": 1152,
-          "y": 576
+          "y": 577
         }
       },
       {
         "name": "coinGold",
         "position": {
           "x": 1280,
-          "y": 576
-        }
-      },
-      {
-        "name": "coinGold",
-        "position": {
-          "x": 1408,
           "y": 576
         }
       }
@@ -128,5 +114,5 @@
       }
     ]
   },
-  "backgroundColor": "#424242"
+  "backgroundColor": "#d1f4f8"
 }

@@ -12,11 +12,14 @@ export class DebugController
             return;
     
         events.persistent.on(BareEvent.key_pressed, ({ key }) => {
-            if (key.toLocaleLowerCase() == "z")
-            {
-                window.debug = !window.debug;
-            }
             if (key.toLocaleLowerCase() == "r")
+            {
+                if (!bareEngine.levelEditorOpen)
+                {
+                    bareEngine.Restart();
+                }
+            }
+            if (key.toLocaleLowerCase() == "l")
             {
                 if (!bareEngine.levelEditorOpen)
                 {
@@ -24,12 +27,9 @@ export class DebugController
                     levelHandler.RestartLevel();
                 }
             }
-            if (key.toLocaleLowerCase() == "t")
+            if (key.toLocaleLowerCase() == "z")
             {
-                if (!bareEngine.levelEditorOpen)
-                {
-                    bareEngine.Restart();
-                }
+                window.debug = !window.debug;
             }
         });
     }
