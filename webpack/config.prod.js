@@ -99,7 +99,7 @@ module.exports = {
 		}),
         new InjectInitialAssetsPlugin(),
         new CopyPlugin({
-            patterns: [{ from: "public", to: "" }]
+            patterns: [{ from: "public", to: "", globOptions: { ignore: ["**/index.html"] } }]
         }),
         new (class {
             apply(compiler) {

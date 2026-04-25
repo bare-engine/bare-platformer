@@ -344,6 +344,14 @@ function createControllerProxyTransformer(program) {
                                     );
                                 }
                             }
+                            if (ts.isCallExpression(n) && ts.isIdentifier(n.expression) && n.expression.text === "TweenTo") {
+                                if (!introducedControllers.has("TweenTo")) {
+                                    introducedControllers.add("TweenTo");
+                                    newStatements.push(
+                                        factory.createExpressionStatement(factory.createIdentifier("TweenTo"))
+                                    );
+                                }
+                            }
                             ts.forEachChild(n, scanControllers);
                         }
                         scanControllers(statement);

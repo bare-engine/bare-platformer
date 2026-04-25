@@ -1,16 +1,19 @@
-import { AnimationComponent, BaseComponent, keyboardController, Scene } from "bare-engine";
+import { AnimationComponent, BaseComponent, keyboardController, PhysicsObjectBare, Scene, type GameObject } from "bare-engine";
 
 enum State
 {
     Idle,
-    Walk
+    Walk,
+    Jump
 }
 
-export class PlayerComponent extends BaseComponent
+export class PlayerComponent extends BaseComponent<PhysicsObjectBare>
 {
     state:State;
     animationComponent: AnimationComponent;
-    speed = 3;
+
+    moveSpeed = 500;
+    jump = -1600;
 
     constructor(scene:Scene)
     {
@@ -19,48 +22,52 @@ export class PlayerComponent extends BaseComponent
 
     OnAdded(): void
     {
-        this.animationComponent = this.go.GetComponent(AnimationComponent);
+        this.animationComponent = (this.go as GameObject).GetComponent(AnimationComponent);
         this.SetState(State.Idle);
     }
 
     OnUpdate(deltaTime: number): void
     {
+        // WALK
         if (keyboardController.IsLeftDown())
         {
             this.go.flipped = true;
-            this.go.SetPosition(this.go.x - this.speed, this.go.y);
-            this.SetState(State.Walk);
+            this.go.velocity.x = -this.moveSpeed;
+
+            if (this.go.IsGrounded())
+                this.SetState(State.Walk);
         }
         else
         if (keyboardController.IsRightDown())
         {
             this.go.flipped = false;
-            this.go.SetPosition(this.go.x + this.speed, this.go.y);
-            this.SetState(State.Walk);
+            this.go.velocity.x = this.moveSpeed;
+
+            if (this.go.IsGrounded())
+                this.SetState(State.Walk);
         }
         else
         {
-            this.SetState(State.Idle);
+            this.go.velocity.x = 0;
         }
 
-        this.HandleState();
-    }
-
-    HandleState()
-    {
-        switch (this.state)
+        // JUMP
+        if (this.go.IsGrounded() && keyboardController.IsUpPressed())
         {
-            case State.Idle:
-
-            break;
-            case State.Walk:
-            break;
+            this.go.velocity.y = this.jump;
+            this.SetState(State.Jump);
+        }
+        
+        // IDLE
+        if(this.go.velocity.isZero())
+        {
+            this.SetState(State.Idle);
         }
     }
 
     SetState(state: State)
     {
-        if (this.state === state)
+        if (this.state == state)
             return;
 
         this.state = state;
@@ -72,6 +79,9 @@ export class PlayerComponent extends BaseComponent
             break;
             case State.Walk:
                 this.animationComponent.Play('walk');
+            break;
+            case State.Jump:
+                this.animationComponent.Play('jump');
             break;
         }
     }

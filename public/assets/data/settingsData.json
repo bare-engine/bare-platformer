@@ -1,8 +1,25 @@
 {
+  "gravity": 5000,
   "categories": {
     "characters": {
-      "image": "ℹ",
       "entries": ["player", "collisionRect"]
+    },
+    "backgrounds": {
+      "entries": ["backgrounds/blueLand"]
+    }
+  },
+  "baseEntities": {
+    "ANY": {
+      "extendClass": "GameObject"
+    },
+    "ANY_ENTITY": {
+      "baseEntity": "ANY",
+      "extendClass": "GameObject"
+    },
+    "block": {
+      "imagePath": "ground/grass",
+      "hitbox": "FULL",
+      "static": true
     }
   },
   "entities": {
@@ -12,17 +29,20 @@
         "x": 0.5,
         "y": 1
       },
-      "hitbox": "FULL",
+      "hitbox": {
+        "x1": 1.01,
+        "y1": 0,
+        "x2": 129,
+        "y2": 188
+      },
       "components": {
         "animation": {},
         "player": {}
       }
     },
     "collisionRect": {
-      "baseEntity": "NONE",
       "texture": "whitePixel",
-      "color": "#000000",
-      "alpha": 0.4,
+      "color": "#ffffff",
       "imagePath": "",
       "collide": true,
       "pivot": {
@@ -35,6 +55,15 @@
       "components": {
         "resizable": {}
       }
+    },
+    "grassLeft": {
+      "baseEntity": "block"
+    },
+    "grassMid": {
+      "baseEntity": "block"
+    },
+    "grassRight": {
+      "baseEntity": "block"
     }
   },
   "animations": {
@@ -43,6 +72,21 @@
     },
     "player_walk": {
       "frames": ["player/player_walk1#2"]
+    },
+    "player_jump": {
+      "frames": ["player/player_jump"]
     }
+  },
+  "settings": {
+    "gridEnabled": true,
+    "gridSize": 96,
+    "minimized": false
+  },
+  "layers": ["objects", "background"],
+  "layersInfo": {
+    "background": {
+      "doSave": true
+    },
+    "objects": {}
   }
 }
