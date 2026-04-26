@@ -6,6 +6,7 @@ export class CollectableComponent extends BaseComponent<PhysicsObjectBare>
     OnStart(): void
     {
         // FLOAT UP AND DOWN
+        this.go.innerY = -5;
         TweenTo(this.go, .4, {delay: Math.random() * .2, innerY: "+=" + 10, ease: Easing.Sinusoidal.InOut, yoyo: true, repeat: -1});
     }
 

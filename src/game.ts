@@ -46,21 +46,24 @@ export class Game extends Scene
         this.uiScene = await sceneController.Add(UI);
     }
 
+    //THIS METHOD IS CALLED ON START AND RESTART
     async OnStart()
     {
         // LOAD THE LEVEL
         await this.levelHandler.LoadLevel('level');
 
-        // RESET COINS (THIS METHOD IS EXECUTED ON RESTART TOO)
+        // RESET COINS
         this.uiScene.SetCoinAmount(0);
 
-        // LISTEN TO COIN COLLECTED - WIN WHEN NO COLLECTABLES LEFT
+        // KEEP TRACK OF COINS
+        var totalCoins = this.objectController.GetAllObjects().filter(obj => obj.GetComponent(CollectableComponent)).length;
+        
+        // LISTEN TO COIN COLLECTED - WIN WHEN NONE LEFT
         this.events.on("collectableCollected", async ({collectable}) => {
             this.uiScene.AddCoin();
 
-            var collectablesLeft = this.objectController.GetAllObjects()
-                                      .filter(obj => (obj != collectable && (obj as any).collide && obj.GetComponent(CollectableComponent))).length;
-            if (collectablesLeft == 0)
+            totalCoins--;
+            if (totalCoins == 0)
             {
                 await wait(.5);
                 this.Win();

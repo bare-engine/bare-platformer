@@ -124,6 +124,13 @@
           "x": 384,
           "y": 896
         }
+      },
+      {
+        "name": "coinGold",
+        "position": {
+          "x": 640,
+          "y": 768
+        }
       }
     ],
     "background": [
