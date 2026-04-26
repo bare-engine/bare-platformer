@@ -17,7 +17,7 @@ export class UI extends Scene
         this.coinObj = this.AddGameObject("HUD/hudCoin")
             .CenterPivot()
             .SetScale(.5)
-            .SetPosition(30, 30)
+            .SetPosition(30, 30);
 
         // COIN TEXT
         this.coinTextObj = new TextObject(this, {

@@ -7,6 +7,13 @@
   "entitiesByLayer": {
     "objects": [
       {
+        "name": "saw",
+        "position": {
+          "x": 1152,
+          "y": 384
+        }
+      },
+      {
         "name": "grassLeft",
         "position": {
           "x": 64,
@@ -87,7 +94,7 @@
         "name": "coinGold",
         "position": {
           "x": 1152,
-          "y": 577
+          "y": 576
         }
       },
       {
@@ -95,13 +102,6 @@
         "position": {
           "x": 1280,
           "y": 576
-        }
-      },
-      {
-        "name": "saw",
-        "position": {
-          "x": 1152,
-          "y": 384
         }
       },
       {

@@ -834,10 +834,7 @@ function addBareEngineImports(sourceFile, names, factory) {
         return sourceFile;
     }
 
-    const specialImportModules = new Map([
-        ["PhysicsControllerSopiro", "bare-engine/sopiroPhysics"],
-        ["PhysicsControllerBare", "bare-engine/barePhysics"]
-    ]);
+    const specialImportModules = new Map();
 
     const namesByModule = new Map();
     for (const name of names) {

@@ -1,8 +1,6 @@
 import settingsDataJson from '../public/assets/data/settingsData.json';
 
-import { AnimationComponent, BareEvent, BarePlugin, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, Scene, sceneController, StartBare } from 'bare-engine';
-import { PhysicsControllerBare } from 'bare-engine/barePhysics';
-import { soundHandler } from 'bare-engine/sound';
+import { AnimationComponent, BareEvent, BarePlugin, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, PhysicsControllerBare, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
 import { DebugController } from './controllers/debugController';
