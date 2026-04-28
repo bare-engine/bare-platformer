@@ -8,7 +8,7 @@ export class UI extends Scene
     
     constructor()
     {
-        super({UI: true});
+        super({UI: true, persistent: true});
     }
     
     async OnAwake()

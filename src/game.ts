@@ -1,6 +1,6 @@
 import settingsDataJson from '../public/assets/data/settingsData.json';
 
-import { AnimationComponent, BareEvent, BarePlugin, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, PhysicsControllerBare, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
+import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, PhysicsControllerBare, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
 import { DebugController } from './controllers/debugController';
@@ -28,10 +28,6 @@ export class Game extends Scene
         const font = new FontFace('Qilka-Bold', 'url("/assets/fonts/Qilka-Bold.otf")');
         await font.load();
         (document.fonts as any).add(font);
-
-        // UNCOMMENT TO ENABLE PLUGIN
-        if (__DEV__)
-            this.AddClass(BarePlugin);
 
         this.AddClass(PlayerComponent);
         this.AddClass(AnimationComponent);
@@ -106,4 +102,4 @@ export class Game extends Scene
     }
 }
 
-StartBare(Game);
+StartBare(Game, {editorButtonPosition: {x:.5, y: 0}});
