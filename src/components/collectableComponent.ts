@@ -18,7 +18,7 @@ export class CollectableComponent extends BaseComponent<PhysicsObjectBare>
         bare.events.emit("collectableCollected", {collectable: this.go});
 
         // GET COLLECTABLE
-        soundHandler.playSound("coin", {volume: 0.1});
+        soundHandler.playSound("coin", {volume: .1});
 
         this.go.GetComponent(ParticleComponent).Fire();
 

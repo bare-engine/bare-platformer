@@ -1,4 +1,4 @@
-import settingsDataJson from '../public/assets/data/settingsData.json';
+import settingsData from '../public/assets/data/settingsData.json';
 import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, ParticleComponent, PhysicsControllerBare, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
@@ -17,7 +17,10 @@ export class Game extends Scene
     
     constructor()
     {
-        super(settingsDataJson);
+        // TELLING BARE ABOUT OUR SETTINGS
+        // EG: HOW ENTITIES ARE SETUP (player/block/collectable)
+        super(settingsData);
+
         window.game = this;
     }
     
@@ -28,22 +31,31 @@ export class Game extends Scene
         await font.load();
         (document.fonts as any).add(font);
 
+        // IMPORT THIS TO ENABLE PHYSICS
+        this.AddClass(PhysicsControllerBare);
+
+        // IMPORT COMPONENTS WE USE IN THE LEVEL
         this.AddClass(PlayerComponent);
         this.AddClass(AnimationComponent);
         this.AddClass(CollectableComponent);
         this.AddClass(ParticleComponent);
-        this.AddClass(PhysicsControllerBare);
 
+        // ADD THIS TO HOOK UP SOME DEBUG KEYS: FOR RESTART AND TOGGLING DEBUG VISUALS
         window.debugController = new DebugController(this);
         
+        // ADDING OUR OWN UI SCENE - SHOWING THE COINS COLLECTED
         this.uiScene = await sceneController.Add(UI);
     }
 
-    //THIS METHOD IS CALLED ON START AND RESTART
+    //THIS METHOD IS ALSO CALLED ON RESTART
     async OnStart()
     {
         // LOAD THE LEVEL
         await this.levelHandler.LoadLevel('level');
+
+        // SET CAMERA TO FIT THE LEVEL
+        cameraHandler.SetScaleMode(CameraScaleMode.Contain);
+        cameraHandler.SetDimensionsToLevel();
 
         // RESET COINS
         this.uiScene.SetCoinAmount(0);
@@ -51,7 +63,7 @@ export class Game extends Scene
         // KEEP TRACK OF COINS
         var totalCoins = this.componentController.GetComponentsByType(CollectableComponent).length;
         
-        // LISTEN TO COIN COLLECTED - WIN WHEN NONE LEFT
+        // LISTEN TO CUSTOM COIN COLLECTED EVENT - WIN WHEN NONE LEFT
         this.events.on("collectableCollected", async ({collectable}) => {
             this.uiScene.AddCoin();
 
@@ -63,24 +75,20 @@ export class Game extends Scene
             }
         });
 
-        // LISTEN TO PLAYER COLLISION - LOSE WHEN COLLIDES WITH SAW
+        // LISTEN TO PLAYER COLLISION - LOSE WHEN COLLIDES WITH SOMETHING TAGGED AS DANGEROUS (SAW)
         var player = this.objectController.GetObjectByName("player");
         player.events.on(BareEvent.collision_start, async (object) => {
-            if (object.name == "saw")
+            if (object.tags.includes("dangerous"))
             {
                 player.SetColor("#ff9b9b");
                 this.Lose();
             }
         });
-
-        // SET CAMERA TO FIT LEVEL
-        cameraHandler.SetScaleMode(CameraScaleMode.Contain);
-        cameraHandler.SetDimensionsToLevel();
     }
 
     Win()
     {
-        soundHandler.playSound("win", {volume: 0.2});
+        soundHandler.playSound("win", {volume: .2});
 
         var flag = this.objectController.GetObjectByName("flagYellow");
         var anim = flag.GetComponent(AnimationComponent);
@@ -89,11 +97,13 @@ export class Game extends Scene
 
     async Lose()
     {
-        soundHandler.playSound("lose", {volume: 0.4});
+        soundHandler.playSound("lose", {volume: .4});
 
         await this.Sleep(.75);
         this.Restart();
     }
 }
 
+// START THE BARE ENGINE!
+// PROVIDING Game AS STARTING SCENE
 StartBare(Game, {editorButtonPosition: {x:.5, y: 0}});

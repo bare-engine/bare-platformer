@@ -78,6 +78,7 @@
       "hitboxType": "circle",
       "physicsRadius": 45,
       "static": true,
+      "tags": ["dangerous"],
       "components": {
         "animation": {}
       }
