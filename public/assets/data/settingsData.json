@@ -2,7 +2,7 @@
   "gravity": 5000,
   "categories": {
     "characters": {
-      "entries": ["player", "collisionRect"],
+      "entries": ["player"],
       "expanded": true
     },
     "backgrounds": {
@@ -48,22 +48,6 @@
       "components": {
         "animation": {},
         "player": {}
-      }
-    },
-    "collisionRect": {
-      "texture": "whitePixel",
-      "color": "#ffffff",
-      "imagePath": "",
-      "collide": true,
-      "pivot": {
-        "x": 0,
-        "y": 0
-      },
-      "static": true,
-      "visible": false,
-      "hitbox": "FULL",
-      "components": {
-        "resizable": {}
       }
     },
     "grassLeft": {
