@@ -1,4 +1,4 @@
-import { BaseComponent, Easing, ParticleComponent, PhysicsObjectBare, soundHandler, TweenTo, type GameObject } from "bare-engine";
+import { BaseComponent, Easing, InspectorButton, ParticleComponent, PhysicsObjectBare, soundHandler, TweenTo, type GameObject } from "bare-engine";
 
 export class CollectableComponent extends BaseComponent<PhysicsObjectBare>
 {
@@ -9,11 +9,17 @@ export class CollectableComponent extends BaseComponent<PhysicsObjectBare>
         TweenTo(this.go, .4, {delay: Math.random() * .2, innerY: "+=" + 10, ease: Easing.Sinusoidal.InOut, yoyo: true, repeat: -1});
     }
 
-    async OnCollisionStart(collidingObject: GameObject): Promise<void>
+    OnCollisionStart(collidingObject: GameObject): Promise<void>
     {
         if (collidingObject.name != "player")
             return;
 
+        this.Collect();
+    }
+
+    @InspectorButton
+    async Collect()
+    {
         // SEND OUT CUSTOM EVENT - Game.ts LISTENS TO THIS
         bare.events.emit("collectableCollected", {collectable: this.go});
 
