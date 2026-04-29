@@ -12,16 +12,16 @@ export class DebugController
             return;
     
         events.persistent.on(BareEvent.key_pressed, ({ key }) => {
+            if (key.toLocaleLowerCase() == "e")
+            {
+                window.debug = !window.debug;
+            }
             if (key.toLocaleLowerCase() == "r")
             {
                 if (!bareEngine.levelEditorOpen)
                 {
                     bareEngine.Restart();
                 }
-            }
-            if (key.toLocaleLowerCase() == "z")
-            {
-                window.debug = !window.debug;
             }
         });
     }

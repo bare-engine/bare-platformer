@@ -1,4 +1,4 @@
-import { AnimationComponent, BaseComponent, keyboardController, PhysicsObjectBare } from "bare-engine";
+import { AnimationComponent, BaseComponent, InspectorField, keyboardController, Label, Locked, PhysicsObjectBare } from "bare-engine";
 
 enum State
 {
@@ -14,6 +14,14 @@ export class PlayerComponent extends BaseComponent<PhysicsObjectBare>
 
     moveSpeed = 500;
     jump = -1600;
+
+    @InspectorField
+    @Locked
+    @Label('State')
+    playerState = {
+        get: () => State[this.state],
+        set: (state: string) => this.SetState(State[state as keyof typeof State])
+    };
 
     OnAdded(): void
     {
