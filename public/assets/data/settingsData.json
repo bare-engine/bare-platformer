@@ -3,14 +3,14 @@
   "categories": {
     "characters": {
       "entries": ["player", "collisionRect"],
-	  "expanded": true
+      "expanded": true
     },
     "backgrounds": {
       "entries": ["backgrounds/blueLand"],
-	  "expanded": true
+      "expanded": true
     },
     "uncategorized": {
-	  "expanded": true
+      "expanded": true
     }
   },
   "baseEntities": {

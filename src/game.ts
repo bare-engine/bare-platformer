@@ -1,6 +1,5 @@
 import settingsDataJson from '../public/assets/data/settingsData.json';
-
-import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, PhysicsControllerBare, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
+import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, ParticleComponent, PhysicsControllerBare, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
 import { DebugController } from './controllers/debugController';
@@ -50,7 +49,7 @@ export class Game extends Scene
         this.uiScene.SetCoinAmount(0);
 
         // KEEP TRACK OF COINS
-        var totalCoins = this.objectController.GetAllObjects().filter(obj => obj.GetComponent(CollectableComponent)).length;
+        var totalCoins = this.componentController.GetComponentsByType(CollectableComponent).length;
         
         // LISTEN TO COIN COLLECTED - WIN WHEN NONE LEFT
         this.events.on("collectableCollected", async ({collectable}) => {
@@ -64,23 +63,18 @@ export class Game extends Scene
             }
         });
 
-        // LISTEN TO GENERAL COLLISION - LOSE WHEN PLAYER COLLIDES WITH SAW
-        this.events.on(BareEvent.collision_start, async (object1, object2) => {
-            var player = (object1.name == "player" ? object1 : object2.name == "player" ? object2 : null);
-            var saw = (object1.name == "saw" ? object1 : object2.name == "saw" ? object2 : null);
-            if (player && saw)
+        // LISTEN TO PLAYER COLLISION - LOSE WHEN COLLIDES WITH SAW
+        var player = this.objectController.GetObjectByName("player");
+        player.events.on(BareEvent.collision_start, async (object) => {
+            if (object.name == "saw")
             {
                 player.SetColor("#ff9b9b");
                 this.Lose();
             }
         });
-    }
 
-    override OnAfterLoadedLevel(level:LevelData)
-    {
-        // SET UP CAMERA
+        // SET CAMERA TO FIT LEVEL
         cameraHandler.SetScaleMode(CameraScaleMode.Contain);
-        cameraHandler.SetBoundsToScreen();
         cameraHandler.SetDimensionsToLevel();
     }
 

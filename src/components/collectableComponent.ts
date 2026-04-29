@@ -14,9 +14,10 @@ export class CollectableComponent extends BaseComponent<PhysicsObjectBare>
         if (collidingObject.name != "player")
             return;
 
+        // SEND OUT CUSTOM EVENT - Game.ts LISTENS TO THIS
         bare.events.emit("collectableCollected", {collectable: this.go});
 
-        // GET COLLECTABLE - PLAY SOUND, FLOAT UP, REMOVE
+        // GET COLLECTABLE
         soundHandler.playSound("coin", {volume: 0.1});
 
         this.go.GetComponent(ParticleComponent).Fire();

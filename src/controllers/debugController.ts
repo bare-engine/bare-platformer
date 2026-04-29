@@ -19,14 +19,6 @@ export class DebugController
                     bareEngine.Restart();
                 }
             }
-            if (key.toLocaleLowerCase() == "l")
-            {
-                if (!bareEngine.levelEditorOpen)
-                {
-                    SaveData.levelCache.clear();
-                    levelHandler.RestartLevel();
-                }
-            }
             if (key.toLocaleLowerCase() == "z")
             {
                 window.debug = !window.debug;

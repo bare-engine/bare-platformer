@@ -1,4 +1,4 @@
-import { AnimationComponent, BaseComponent, keyboardController, PhysicsObjectBare, Scene } from "bare-engine";
+import { AnimationComponent, BaseComponent, keyboardController, PhysicsObjectBare } from "bare-engine";
 
 enum State
 {
@@ -24,22 +24,23 @@ export class PlayerComponent extends BaseComponent<PhysicsObjectBare>
     OnUpdate(deltaTime: number): void
     {
         // WALK
-        if (keyboardController.IsLeftDown())
+        var moveX = (dir:number) =>
         {
-            this.go.flipped = true;
-            this.go.velocity.x = -this.moveSpeed;
+            this.go.flipped = (dir < 0);
+            this.go.velocity.x = (dir * this.moveSpeed);
 
             if (this.go.IsGrounded())
                 this.SetState(State.Walk);
         }
+        
+        if (keyboardController.IsLeftDown())
+        {
+            moveX(-1);
+        }
         else
         if (keyboardController.IsRightDown())
         {
-            this.go.flipped = false;
-            this.go.velocity.x = this.moveSpeed;
-
-            if (this.go.IsGrounded())
-                this.SetState(State.Walk);
+            moveX(1);
         }
         else
         {
