@@ -15,19 +15,17 @@ export class UI extends Scene
     {
         // COIN IMAGE
         this.coinObj = this.AddGameObject("HUD/hudCoin")
-            .CenterPivot()
             .SetScale(.5)
-            .SetPosition(30, 30);
+            .SetPosition(12, 12);
 
         // COIN TEXT
         this.coinTextObj = new TextObject(this, {
-            fontSize: 50,
+            fontSize: 56,
             fontFamily: 'Qilka-Bold',
             color: '#c8a104'
         });
         this.AddGameObject(this.coinTextObj)
-            .CenterPivot()
-            .SetPosition(77, 37);
+            .SetPosition(64, 12);
     }
 
     SetCoinAmount(amount: number)
