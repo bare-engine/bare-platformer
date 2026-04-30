@@ -13,10 +13,12 @@ export class UI extends Scene
     
     async OnAwake()
     {
+        var marge = 12;
+        
         // COIN IMAGE
         this.coinObj = this.AddGameObject("HUD/hudCoin")
             .SetScale(.5)
-            .SetPosition(12, 12);
+            .SetPosition(marge, marge);
 
         // COIN TEXT
         this.coinTextObj = new TextObject(this, {
@@ -25,7 +27,7 @@ export class UI extends Scene
             color: '#c8a104'
         });
         this.AddGameObject(this.coinTextObj)
-            .SetPosition(64, 12);
+            .SetPosition(marge + 52, marge);
     }
 
     SetCoinAmount(amount: number)
