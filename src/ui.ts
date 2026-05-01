@@ -13,6 +13,9 @@ export class UI extends Scene
     
     async OnAwake()
     {
+        // LOAD CUSTOM FONT
+        await this.LoadFont('Qilka-Bold');
+            
         var marge = 12;
         
         // COIN IMAGE
@@ -23,7 +26,6 @@ export class UI extends Scene
         // COIN TEXT
         this.coinTextObj = new TextObject(this, {
             fontSize: 56,
-            fontFamily: 'Qilka-Bold',
             color: '#c8a104'
         });
         this.AddGameObject(this.coinTextObj)

@@ -26,11 +26,6 @@ export class Game extends Scene
     
     async OnAwake()
     {
-        // LOAD CUSTOM FONT
-        const font = new FontFace('Qilka-Bold', 'url("/assets/fonts/Qilka-Bold.otf")');
-        await font.load();
-        (document.fonts as any).add(font);
-
         // IMPORT THIS TO ENABLE PHYSICS
         this.AddClass(PhysicsControllerBare);
 
@@ -77,7 +72,7 @@ export class Game extends Scene
 
         // LISTEN TO PLAYER COLLISION - LOSE WHEN COLLIDES WITH SOMETHING TAGGED AS DANGEROUS (SAW)
         var player = this.objectController.GetObjectByName("player");
-        player.events.on(BareEvent.collision_start, async (object) => {
+        player.events.on(BareEvent.collision_start, (object) => {
             if (object.tags.includes("dangerous"))
             {
                 player.SetColor("#ff9b9b");
