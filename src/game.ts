@@ -1,5 +1,5 @@
 import settingsData from '../public/assets/data/settingsData.json';
-import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, ParticleComponent, PhysicsControllerBare, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
+import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, ParticleComponent, PhysicsControllerBare, PhysicsObjectBare, Scene, sceneController, soundHandler, StartBare, GameObject, LevelData } from 'bare-engine';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
 import { DebugController } from './controllers/debugController';
@@ -26,7 +26,9 @@ export class Game extends Scene
     
     async OnAwake()
     {
+        this.AddClass(GameObject);
         // IMPORT THIS TO ENABLE PHYSICS
+        this.AddClass(PhysicsObjectBare);
         this.AddClass(PhysicsControllerBare);
 
         // IMPORT COMPONENTS WE USE IN THE LEVEL
@@ -34,7 +36,7 @@ export class Game extends Scene
         this.AddClass(AnimationComponent);
         this.AddClass(CollectableComponent);
         this.AddClass(ParticleComponent);
-
+        
         // ADD THIS TO HOOK UP SOME DEBUG KEYS: FOR RESTART AND TOGGLING DEBUG VISUALS
         window.debugController = new DebugController(this);
         
@@ -47,7 +49,10 @@ export class Game extends Scene
     {
         // LOAD THE LEVEL
         await this.levelHandler.LoadLevel('level');
+    }
 
+    OnAfterLoadedLevel(level: LevelData): void
+    {
         // SET CAMERA TO FIT THE LEVEL
         cameraHandler.SetScaleMode(CameraScaleMode.Contain);
         cameraHandler.SetDimensionsToLevel();
