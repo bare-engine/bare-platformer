@@ -26,7 +26,6 @@ export class Game extends Scene
     
     async OnAwake()
     {
-        this.AddClass(GameObject);
         // IMPORT THIS TO ENABLE PHYSICS
         this.AddClass(PhysicsObjectBare);
         this.AddClass(PhysicsControllerBare);
