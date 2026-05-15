@@ -1,5 +1,5 @@
+import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, PhysicsControllerBare, PhysicsObjectBare, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
 import settingsData from '../public/assets/data/settingsData.json';
-import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, ParticleComponent, PhysicsControllerBare, PhysicsObjectBare, Scene, sceneController, soundHandler, StartBare, GameObject, LevelData } from 'bare-engine';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
 import { DebugController } from './controllers/debugController';
@@ -41,6 +41,9 @@ export class Game extends Scene
         
         // ADDING OUR OWN UI SCENE - SHOWING THE COINS COLLECTED
         this.uiScene = await sceneController.Add(UI);
+        
+        // ADD A BUTTON TO GO TO LEVEL EDITOR - VISIBLE FOR PLAYERS IN PRODUCTION BUILD
+        //sceneController.Add(EditorUIScene);
     }
 
     //THIS METHOD IS ALSO CALLED ON RESTART
