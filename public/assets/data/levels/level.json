@@ -138,10 +138,7 @@
         "name": "blueLand",
         "position": {
           "y": -192
-        },
-        "componentsRemoved": [
-          "animation"
-        ]
+        }
       }
     ]
   },

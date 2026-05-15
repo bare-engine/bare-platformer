@@ -27,16 +27,16 @@ export class Game extends Scene
     async OnAwake()
     {
         // IMPORT THIS TO ENABLE PHYSICS
-        this.AddClass(PhysicsObjectBare);
-        this.AddClass(PhysicsControllerBare);
+        bareEngine.AddClass(PhysicsObjectBare);
+        bareEngine.AddClass(PhysicsControllerBare);
 
         // IMPORT COMPONENTS WE USE IN THE LEVEL
-        this.AddClass(PlayerComponent);
-        this.AddClass(AnimationComponent);
-        this.AddClass(CollectableComponent);
-        this.AddClass(ParticleComponent);
+        bareEngine.AddClass(PlayerComponent);
+        bareEngine.AddClass(AnimationComponent);
+        bareEngine.AddClass(CollectableComponent);
+        bareEngine.AddClass(ParticleComponent);
         
-        // ADD THIS TO HOOK UP SOME DEBUG KEYS: FOR RESTART AND TOGGLING DEBUG VISUALS
+        // ADD THIS TO HOOK UP SOME DEBUG KEYS: FOR RESTART(R) AND TOGGLING DEBUG VISUALS(E)
         window.debugController = new DebugController(this);
         
         // ADDING OUR OWN UI SCENE - SHOWING THE COINS COLLECTED
