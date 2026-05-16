@@ -50,7 +50,7 @@ export class Game extends Scene
     async OnStart()
     {
         // LOAD THE LEVEL
-        await this.levelHandler.LoadLevel('level');
+        await this.LoadLevel('level');
     }
 
     OnAfterLoadedLevel(level: LevelData): void
