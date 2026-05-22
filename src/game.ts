@@ -53,7 +53,7 @@ export class Game extends Scene
         await this.LoadLevel('level');
     }
 
-    OnAfterLoadedLevel(level: LevelData): void
+    override OnPostLoadLevel(level: LevelData): void
     {
         // SET CAMERA TO FIT THE LEVEL
         cameraHandler.SetScaleMode(CameraScaleMode.Contain);
@@ -108,4 +108,4 @@ export class Game extends Scene
 
 // START THE BARE ENGINE!
 // PROVIDING Game AS STARTING SCENE
-StartBare(Game, {editorButtonPosition: {x:.5, y: 0}});
+StartBare(Game, {editorButtonPosition: {x:.5, y: 0}, showEditorButton: true});

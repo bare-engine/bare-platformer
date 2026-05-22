@@ -56,7 +56,7 @@ export class PlayerComponent extends BaseComponent<PhysicsObjectBare>
         }
 
         // JUMP
-        if (this.go.IsGrounded() && (keyboardController.IsUpPressed() || keyboardController.IsKeyPressed(' ')))
+        if (this.go.IsGrounded() && (keyboardController.IsUpPressed() || keyboardController.IsKeyPressed('space')))
         {
             this.go.velocity.y = this.jump;
             this.SetState(State.Jump);
