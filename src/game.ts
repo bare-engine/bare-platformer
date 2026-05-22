@@ -2,13 +2,11 @@ import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, LevelDat
 import settingsData from '../public/data/settingsData.json';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
-import { DebugController } from './controllers/debugController';
 import { UI } from './ui';
 
 declare global
 {
     var game: Game;
-    var debugController:DebugController;
 }
 
 export class Game extends Scene
@@ -35,9 +33,6 @@ export class Game extends Scene
         bareEngine.AddClass(AnimationComponent);
         bareEngine.AddClass(CollectableComponent);
         bareEngine.AddClass(ParticleComponent);
-        
-        // ADD THIS TO HOOK UP SOME DEBUG KEYS: FOR RESTART(R) AND TOGGLING DEBUG VISUALS(E)
-        window.debugController = new DebugController(this);
         
         // ADDING OUR OWN UI SCENE - SHOWING THE COINS COLLECTED
         this.uiScene = await sceneController.Add(UI);
