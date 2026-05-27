@@ -1,4 +1,4 @@
-import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, PhysicsControllerBare, PhysicsObjectBare, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
+import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, ArcadePhysicsController, ArcadeObject, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
 import settingsData from '../public/data/settingsData.json';
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
@@ -25,14 +25,14 @@ export class Game extends Scene
     async OnAwake()
     {
         // IMPORT THIS TO ENABLE PHYSICS
-        bareEngine.AddClass(PhysicsObjectBare);
-        bareEngine.AddClass(PhysicsControllerBare);
+        bare.AddClass(ArcadeObject);
+        bare.AddClass(ArcadePhysicsController);
 
         // IMPORT COMPONENTS WE USE IN THE LEVEL
-        bareEngine.AddClass(PlayerComponent);
-        bareEngine.AddClass(AnimationComponent);
-        bareEngine.AddClass(CollectableComponent);
-        bareEngine.AddClass(ParticleComponent);
+        bare.AddClass(PlayerComponent);
+        bare.AddClass(AnimationComponent);
+        bare.AddClass(CollectableComponent);
+        bare.AddClass(ParticleComponent);
         
         // ADDING OUR OWN UI SCENE - SHOWING THE COINS COLLECTED
         this.uiScene = await sceneController.Add(UI);

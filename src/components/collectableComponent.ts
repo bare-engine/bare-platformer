@@ -1,6 +1,6 @@
-import { BaseComponent, Easing, InspectorButton, ParticleComponent, PhysicsObjectBare, soundHandler, TweenTo, type GameObject } from "bare-engine";
+import { BaseComponent, Easing, InspectorButton, ParticleComponent, ArcadeObject, soundHandler, TweenTo, type GameObject } from "bare-engine";
 
-export class CollectableComponent extends BaseComponent<PhysicsObjectBare>
+export class CollectableComponent extends BaseComponent<ArcadeObject>
 {
     OnStart(): void
     {
@@ -21,7 +21,7 @@ export class CollectableComponent extends BaseComponent<PhysicsObjectBare>
     async Collect()
     {
         // SEND OUT CUSTOM EVENT - Game.ts LISTENS TO THIS
-        bare.events.emit("collectableCollected", {collectable: this.go});
+        bScene.events.emit("collectableCollected", {collectable: this.go});
 
         // GET COLLECTABLE
         soundHandler.playSound("coin", {volume: .1});

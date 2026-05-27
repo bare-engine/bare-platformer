@@ -14,7 +14,7 @@ export class UI extends Scene
     async OnAwake()
     {
         // LOAD CUSTOM FONT
-        await bareEngine.LoadFont('Qilka-Bold');
+        await bare.LoadFont('Qilka-Bold');
             
         var marge = 12;
         

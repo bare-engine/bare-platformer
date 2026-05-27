@@ -15,13 +15,13 @@
   },
   "baseEntities": {
     "block": {
-      "baseClass": "PhysicsObjectBare",
+      "baseClass": "ArcadeObject",
       "imagePath": "ground/grass",
       "hitbox": "FULL",
       "static": true
     },
     "collectable": {
-      "baseClass": "PhysicsObjectBare",
+      "baseClass": "ArcadeObject",
       "imagePath": "items",
       "pivot": "CENTER",
       "hitboxType": "circle",
@@ -36,7 +36,7 @@
   },
   "entities": {
     "player": {
-      "baseClass": "PhysicsObjectBare",
+      "baseClass": "ArcadeObject",
       "texture": "player/player_idle",
       "pivot": {
         "x": 0.5,
@@ -76,7 +76,7 @@
       }
     },
     "saw": {
-      "baseClass": "PhysicsObjectBare",
+      "baseClass": "ArcadeObject",
       "imagePath": "enemies",
       "pivot": "CENTER",
       "hitboxType": "circle",
