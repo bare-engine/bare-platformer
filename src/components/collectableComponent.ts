@@ -1,6 +1,6 @@
-import { BaseComponent, Easing, InspectorButton, ParticleComponent, ArcadeObject, soundHandler, TweenTo, type GameObject } from "bare-engine";
+import { Component, Easing, InspectorButton, ParticleComponent, ArcadeObject, soundHandler, TweenTo, type GameObject } from "bare-engine";
 
-export class CollectableComponent extends BaseComponent<ArcadeObject>
+export class CollectableComponent extends Component<ArcadeObject>
 {
     OnStart(): void
     {

@@ -1,4 +1,4 @@
-import { AnimationComponent, BaseComponent, InspectorField, keyboardController, Label, Locked, ArcadeObject } from "bare-engine";
+import { AnimationComponent, Component, InspectorField, keyboardController, Label, Locked, ArcadeObject } from "bare-engine";
 
 enum State
 {
@@ -7,7 +7,7 @@ enum State
     Jump
 }
 
-export class PlayerComponent extends BaseComponent<ArcadeObject>
+export class PlayerComponent extends Component<ArcadeObject>
 {
     state:State;
     animationComponent: AnimationComponent;
