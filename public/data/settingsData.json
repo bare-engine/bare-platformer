@@ -25,7 +25,7 @@
       "imagePath": "items",
       "pivot": "CENTER",
       "hitboxType": "circle",
-      "physicsRadius": 35,
+      "hitboxRadius": 35,
       "sensor": true,
       "static": true,
       "components": {
@@ -65,7 +65,7 @@
     "coinGold": {
       "baseEntity": "collectable",
       "hitboxType": "Circle",
-      "physicsRadius": 32.6
+      "hitboxRadius": 32
     },
     "flagYellow": {
       "texture": "items/flagYellowDown",
@@ -82,7 +82,7 @@
       "imagePath": "enemies",
       "pivot": "CENTER",
       "hitboxType": "Circle",
-      "physicsRadius": 45,
+      "hitboxRadius": 45,
       "static": true,
       "tags": ["dangerous"],
       "components": {
