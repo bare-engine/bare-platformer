@@ -63,7 +63,9 @@
       "baseEntity": "block"
     },
     "coinGold": {
-      "baseEntity": "collectable"
+      "baseEntity": "collectable",
+      "hitboxType": "Circle",
+      "physicsRadius": 32.6
     },
     "flagYellow": {
       "texture": "items/flagYellowDown",
@@ -79,7 +81,7 @@
       "baseClass": "ArcadeObject",
       "imagePath": "enemies",
       "pivot": "CENTER",
-      "hitboxType": "circle",
+      "hitboxType": "Circle",
       "physicsRadius": 45,
       "static": true,
       "tags": ["dangerous"],

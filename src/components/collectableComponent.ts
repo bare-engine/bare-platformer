@@ -1,4 +1,5 @@
-import { Component, Easing, InspectorButton, ParticleComponent, ArcadeObject, soundHandler, TweenTo, type GameObject } from "bare-engine";
+import { Component, Easing, InspectorButton, ParticleComponent, soundHandler, TweenTo, type GameObject } from "bare-engine";
+import { ArcadeObject } from "bare-engine/arcade";
 
 export class CollectableComponent extends Component<ArcadeObject>
 {

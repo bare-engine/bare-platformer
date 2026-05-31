@@ -1,4 +1,5 @@
-import { AnimationComponent, Component, InspectorField, keyboardController, Label, Locked, ArcadeObject } from "bare-engine";
+import { AnimationComponent, Component, InspectorField, keyboardController, Label, Locked } from "bare-engine";
+import { ArcadeObject } from "bare-engine/arcade";
 
 enum State
 {

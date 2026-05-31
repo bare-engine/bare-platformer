@@ -1,5 +1,6 @@
-import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, ArcadePhysicsController, ArcadeObject, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
 import settingsData from '../public/data/settingsData.json';
+import { AnimationComponent, BareEvent, cameraHandler, CameraScaleMode, LevelData, ParticleComponent, Scene, sceneController, soundHandler, StartBare } from 'bare-engine';
+import { ArcadePhysicsController, ArcadeObject } from "bare-engine/arcade";
 import { CollectableComponent } from './components/collectableComponent';
 import { PlayerComponent } from './components/playerComponent';
 import { UI } from './ui';
