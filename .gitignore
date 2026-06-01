@@ -27,6 +27,13 @@ dist/
 # JetBrains IDE
 .idea/
 
+# VS Code
+.vscode/*
+!.vscode/settings.json
+
+# AssetPack
+.assetpack/
+
 # Unit test reports
 TEST*.xml
 
