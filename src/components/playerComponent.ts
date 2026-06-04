@@ -1,5 +1,6 @@
 import { AnimationComponent, Component, InspectorField, keyboardController, Label, Locked } from "bare-engine";
 import { ArcadeObject } from "bare-engine/arcade";
+import { Data } from "../generated/assets";
 
 enum State
 {
@@ -17,8 +18,8 @@ export class PlayerComponent extends Component<ArcadeObject>
     jump = -1600;
 
     @InspectorField
-    @Locked
     @Label('State')
+    @Locked
     playerState = {
         get: () => State[this.state],
         set: (state: string) => this.SetState(State[state as keyof typeof State])
@@ -80,14 +81,17 @@ export class PlayerComponent extends Component<ArcadeObject>
         switch (this.state)
         {
             case State.Idle:
-                this.animationComponent.Play('idle');
+                this.animationComponent.Play(Data.Animation.PLAYER_IDLE);
             break;
             case State.Walk:
-                this.animationComponent.Play('walk');
+                this.animationComponent.Play(Data.Animation.PLAYER_WALK);
             break;
             case State.Jump:
-                this.animationComponent.Play('jump');
+                this.animationComponent.Play(Data.Animation.PLAYER_JUMP);
             break;
         }
+
+        // OR:
+        //this.animationComponent.Play(State[this.state].toLowerCase());
     }
 }
