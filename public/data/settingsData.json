@@ -112,8 +112,7 @@
   },
   "settings": {
     "gridEnabled": true,
-    "gridSize": 64,
-    "minimized": false
+    "gridSize": 64
   },
   "layers": ["objects", "background"],
   "presets": {
