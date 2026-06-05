@@ -14,7 +14,10 @@ export class PlayerComponent extends Component<ArcadeObject>
     state:State;
     animationComponent: AnimationComponent;
 
+    @InspectorField
     moveSpeed = 500;
+    
+    @InspectorField
     jump = -1600;
 
     @InspectorField
