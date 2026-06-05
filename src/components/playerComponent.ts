@@ -1,4 +1,4 @@
-import { AnimationComponent, Component, InspectorField, keyboardController, Label, Locked } from "bare-engine";
+import { AnimationComponent, Component, InspectorField, keyboardController, Label, Locked, Range } from "bare-engine";
 import { ArcadeObject } from "bare-engine/arcade";
 import { Data } from "../generated/assets";
 
@@ -15,8 +15,9 @@ export class PlayerComponent extends Component<ArcadeObject>
     animationComponent: AnimationComponent;
 
     @InspectorField
+    @Range(0, Infinity)
     moveSpeed = 500;
-    
+
     @InspectorField
     jump = -1600;
 
