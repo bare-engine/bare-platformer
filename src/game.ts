@@ -30,9 +30,7 @@ export class Game extends Scene
         bare.AddClass(ArcadePhysicsController);
 
         // IMPORT COMPONENTS WE USE IN THE LEVEL
-        bare.AddClass(PlayerComponent);
         bare.AddClass(AnimationComponent);
-        bare.AddClass(CollectableComponent);
         bare.AddClass(ParticleComponent);
         
         // ADDING OUR OWN UI SCENE - SHOWING THE COINS COLLECTED

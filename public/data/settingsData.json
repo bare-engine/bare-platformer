@@ -24,8 +24,8 @@
       "baseClass": "ArcadeObject",
       "imagePath": "items",
       "pivot": "CENTER",
-      "hitboxType": "circle",
-      "hitboxRadius": 35,
+      "hitboxType": "Circle",
+      "hitboxRadius": 32,
       "sensor": true,
       "static": true,
       "components": {
@@ -63,9 +63,7 @@
       "baseEntity": "block"
     },
     "coinGold": {
-      "baseEntity": "collectable",
-      "hitboxType": "Circle",
-      "hitboxRadius": 32
+      "baseEntity": "collectable"
     },
     "flagYellow": {
       "texture": "items/flagYellowDown",
