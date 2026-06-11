@@ -1,4 +1,4 @@
-import { AnimationComponent, Component, InspectorField, keyboardController, Label, Locked, Range } from "bare-engine";
+import { AnimationComponent, Component, InspectorField, Label, Locked, Range } from "bare-engine";
 import { ArcadeObject } from "bare-engine/arcade";
 import { Data } from "../generated/assets";
 
@@ -47,12 +47,12 @@ export class PlayerComponent extends Component<ArcadeObject>
                 this.SetState(State.Walk);
         }
         
-        if (keyboardController.IsLeftDown())
+        if (bare.keyboard.IsLeftDown())
         {
             moveX(-1);
         }
         else
-        if (keyboardController.IsRightDown())
+        if (bare.keyboard.IsRightDown())
         {
             moveX(1);
         }
@@ -62,7 +62,7 @@ export class PlayerComponent extends Component<ArcadeObject>
         }
 
         // JUMP
-        if (this.go.IsGrounded() && (keyboardController.IsUpPressed() || keyboardController.IsKeyPressed('space')))
+        if (this.go.IsGrounded() && (bare.keyboard.IsUpPressed() || bare.keyboard.IsKeyPressed('space')))
         {
             this.go.velocity.y = this.jump;
             this.SetState(State.Jump);

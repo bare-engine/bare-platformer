@@ -1,4 +1,4 @@
-import { Component, Easing, InspectorButton, ParticleComponent, soundHandler, TweenTo, type GameObject } from "bare-engine";
+import { Component, Easing, InspectorButton, ParticleComponent, TweenTo, type GameObject } from "bare-engine";
 import { ArcadeObject } from "bare-engine/arcade";
 
 export class CollectableComponent extends Component<ArcadeObject>
@@ -25,7 +25,7 @@ export class CollectableComponent extends Component<ArcadeObject>
         bScene.events.emit("collectableCollected", {collectable: this.go});
 
         // GET COLLECTABLE
-        soundHandler.playSound("coin", {volume: .1});
+        bare.sound.Play("coin", {volume: .1});
 
         this.go.GetComponent(ParticleComponent).Fire();
 
