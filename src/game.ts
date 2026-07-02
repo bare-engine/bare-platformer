@@ -59,6 +59,7 @@ export class Game extends Scene
         var totalCoins = bare.component.GetAllByType(CollectableComponent).length;
         
         // LISTEN TO CUSTOM COIN COLLECTED EVENT - WIN WHEN NONE LEFT
+        this.events.off("collectableCollected");
         this.events.on("collectableCollected", async ({collectable}) => {
             this.uiScene.AddCoin();
 
