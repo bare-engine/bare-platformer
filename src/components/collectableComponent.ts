@@ -1,4 +1,4 @@
-import { Component, Easing, InspectorButton, ParticleComponent, TweenTo, type GameObject } from "bare-engine";
+import { Component, Easing, Inspector, ParticleComponent, TweenTo, type GameObject } from "bare-engine";
 import { ArcadeObject } from "bare-engine/arcade";
 
 export class CollectableComponent extends Component<ArcadeObject>
@@ -18,7 +18,7 @@ export class CollectableComponent extends Component<ArcadeObject>
         this.Collect();
     }
 
-    @InspectorButton
+    @Inspector.Button
     async Collect()
     {
         // SEND OUT CUSTOM EVENT - Game.ts LISTENS TO THIS
@@ -35,3 +35,4 @@ export class CollectableComponent extends Component<ArcadeObject>
         this.go.Remove();
     }
 }
+

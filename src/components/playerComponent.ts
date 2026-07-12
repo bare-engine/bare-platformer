@@ -1,4 +1,4 @@
-import { AnimationComponent, Component, InspectorField, Label, Locked, Range } from "bare-engine";
+import { AnimationComponent, Component, Inspector, InspectorField } from "bare-engine";
 import { ArcadeObject } from "bare-engine/arcade";
 import { Data } from "../generated/assets";
 
@@ -15,15 +15,15 @@ export class PlayerComponent extends Component<ArcadeObject>
     animationComponent: AnimationComponent;
 
     @InspectorField
-    @Range(0, Infinity)
+    @Inspector.Limit(0, Infinity)
     moveSpeed = 500;
 
     @InspectorField
     jump = -1600;
 
     @InspectorField
-    @Label('State')
-    @Locked
+    @Inspector.Label('State')
+    @Inspector.Locked
     playerState = {
         get: () => State[this.state],
         set: (state: string) => this.SetState(State[state as keyof typeof State])
@@ -99,3 +99,4 @@ export class PlayerComponent extends Component<ArcadeObject>
         //this.animationComponent.Play(State[this.state].toLowerCase());
     }
 }
+
