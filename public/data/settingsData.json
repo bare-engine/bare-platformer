@@ -111,7 +111,7 @@
     "gridEnabled": true,
     "gridSize": 64
   },
-  "layers": ["objects", "background"],
+  "layers": ["background", "objects"],
   "presets": {
     "PARTICLE_EFFECT": {
       "particle": {
