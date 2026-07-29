@@ -26,10 +26,11 @@ export class UI extends Scene
         // COIN TEXT
         this.coinTextObj = new TextObject(this, {
             fontSize: 56,
-            fill: '#c8a104'
+            fill: '#c8a104',
+            baseline: 'middle'
         });
         this.AddGameObject(this.coinTextObj)
-            .SetPosition(marge + 52, marge);
+            .SetPosition(marge + 52, marge + this.coinObj.height / 2);
     }
 
     SetCoinAmount(amount: number)
