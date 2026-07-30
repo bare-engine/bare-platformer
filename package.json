@@ -31,6 +31,7 @@
     "index": {
       "title": "Bare Platformer",
       "backgroundColor": "rgb(209, 244, 248)"
-    }
+    },
+    "gameId": "barePlatformer"
   }
 }
