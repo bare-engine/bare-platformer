@@ -30,7 +30,7 @@ export class UI extends Scene
         this.coinTextObj = new TextObject(this, {
             fontSize: 56,
             fill: '#c8a104',
-            baseline: 'middle'
+            baseline: 'middle' // BETTER OFFSET RESULT FOR THIS FONT
         });
         this.AddGameObject(this.coinTextObj)
             .SetPosition(marge + 52, marge + this.coinObj.height / 2);

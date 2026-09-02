@@ -13,14 +13,20 @@
       "expanded": true
     }
   },
-  "baseEntities": {
-    "block": {
+  "baseEntities": [
+    {
+      "name": "ANY",
+      "texture": "NAME"
+    },
+    {
+      "name": "block",
       "baseClass": "ArcadeObject",
       "imagePath": "ground/grass",
       "hitbox": "FULL",
       "static": true
     },
-    "collectable": {
+    {
+      "name": "collectable",
       "baseClass": "ArcadeObject",
       "imagePath": "items",
       "pivot": "CENTER",
@@ -33,9 +39,10 @@
         "particle": "PARTICLE_EFFECT"
       }
     }
-  },
-  "entities": {
-    "player": {
+  ],
+  "entities": [
+    {
+      "name": "player",
       "baseClass": "ArcadeObject",
       "texture": "player/player_idle",
       "pivot": {
@@ -53,19 +60,24 @@
         "player": {}
       }
     },
-    "grassLeft": {
-      "baseEntity": "block"
+    {
+      "name": "grassLeft",
+      "entity": "block"
     },
-    "grassMid": {
-      "baseEntity": "block"
+    {
+      "name": "grassMid",
+      "entity": "block"
     },
-    "grassRight": {
-      "baseEntity": "block"
+    {
+      "name": "grassRight",
+      "entity": "block"
     },
-    "coinGold": {
-      "baseEntity": "collectable"
+    {
+      "name": "coinGold",
+      "entity": "collectable"
     },
-    "flagYellow": {
+    {
+      "name": "flagYellow",
       "texture": "items/flagYellowDown",
       "pivot": {
         "x": 0.5,
@@ -75,7 +87,8 @@
         "animation": {}
       }
     },
-    "saw": {
+    {
+      "name": "saw",
       "baseClass": "ArcadeObject",
       "pivot": "CENTER",
       "hitboxType": "Circle",
@@ -86,7 +99,7 @@
         "animation": {}
       }
     }
-  },
+  ],
   "animations": {
     "player_idle": {
       "frames": ["player/player_idle"]

@@ -7,126 +7,130 @@
   "entitiesByLayer": {
     "objects": [
       {
-        "name": "saw",
+        "entity": "saw",
         "position": {
           "x": 640,
           "y": 576
+        },
+        "hitbox": {
+          "x2": 1,
+          "y2": 1
         }
       },
       {
-        "name": "grassLeft",
+        "entity": "grassLeft",
         "position": {
           "x": 64,
           "y": 896
         }
       },
       {
-        "name": "grassMid",
+        "entity": "grassMid",
         "position": {
           "x": 320,
           "y": 896
         }
       },
       {
-        "name": "grassMid",
+        "entity": "grassMid",
         "position": {
           "x": 192,
           "y": 896
         }
       },
       {
-        "name": "grassMid",
+        "entity": "grassMid",
         "position": {
           "x": 448,
           "y": 896
         }
       },
       {
-        "name": "grassRight",
+        "entity": "grassRight",
         "position": {
           "x": 704,
           "y": 896
         }
       },
       {
-        "name": "grassLeft",
+        "entity": "grassLeft",
         "position": {
           "x": 832,
           "y": 704
         }
       },
       {
-        "name": "grassMid",
+        "entity": "grassMid",
         "position": {
           "x": 1088,
           "y": 704
         }
       },
       {
-        "name": "grassMid",
+        "entity": "grassMid",
         "position": {
           "x": 960,
           "y": 704
         }
       },
       {
-        "name": "grassMid",
+        "entity": "grassMid",
         "position": {
           "x": 1216,
           "y": 704
         }
       },
       {
-        "name": "grassRight",
+        "entity": "grassRight",
         "position": {
           "x": 1344,
           "y": 704
         }
       },
       {
-        "name": "coinGold",
+        "entity": "coinGold",
         "position": {
           "x": 1024,
           "y": 576
         }
       },
       {
-        "name": "coinGold",
+        "entity": "coinGold",
         "position": {
           "x": 1152,
           "y": 576
         }
       },
       {
-        "name": "coinGold",
+        "entity": "coinGold",
         "position": {
           "x": 1280,
           "y": 576
         }
       },
       {
-        "name": "grassMid",
+        "entity": "grassMid",
         "position": {
           "x": 576,
           "y": 896
         }
       },
       {
-        "name": "flagYellow",
+        "entity": "flagYellow",
         "position": {
           "x": 192,
           "y": 896
         }
       },
       {
-        "name": "player",
+        "entity": "player",
         "position": {
           "x": 384,
           "y": 896
         }
       },
       {
-        "name": "coinGold",
+        "entity": "coinGold",
         "position": {
           "x": 640,
           "y": 768
@@ -135,7 +139,7 @@
     ],
     "background": [
       {
-        "name": "blueLand",
+        "texture": "backgrounds/blueLand",
         "position": {
           "y": -192
         }
