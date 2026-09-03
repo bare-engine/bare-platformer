@@ -97,7 +97,8 @@
       "tags": ["dangerous"],
       "components": {
         "animation": {}
-      }
+      },
+      "imagePath": "enemies"
     }
   ],
   "animations": {
@@ -128,46 +129,46 @@
   "presets": {
     "PARTICLE_EFFECT": {
       "particle": {
-		  "position": {
-			"x": 0,
-			"y": 0
-		  },
-		  "life": 1,
-		  "texture": "particles/stripeParticle",
-		  "origin": {
-			"x": 0.5,
-			"y": 0.5
-		  },
-		  "emitRate": 5,
-		  "localSpace": false,
-		  "emitShape": "CIRCLE",
-		  "emitRadius": 0,
-		  "animation": {
-			"scale": {
-			  "start": [
-				0.7,
-				1
-			  ],
-			  "end": 0.01
-			},
-			"rotation": {
-			  "start": [
-				0,
-				6.283185307179586
-			  ]
-			},
-			"color": {
-			  "start": "#ffffff",
-			  "end": "#ffcb02"
-			},
-			"speed": {
-			  "start": [
-				500,
-				600
-			  ]
-			}
-		  }
-	  }
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "life": 1,
+        "texture": "particles/stripeParticle",
+        "origin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "emitRate": 5,
+        "localSpace": false,
+        "emitShape": "CIRCLE",
+        "emitRadius": 0,
+        "animation": {
+          "scale": {
+            "start": [
+              0.7,
+              1
+            ],
+            "end": 0.01
+          },
+          "rotation": {
+            "start": [
+              0,
+              6.283185307179586
+            ]
+          },
+          "color": {
+            "start": "#ffffff",
+            "end": "#ffcb02"
+          },
+          "speed": {
+            "start": [
+              500,
+              600
+            ]
+          }
+        }
+      }
     }
   }
 }
