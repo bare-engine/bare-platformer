@@ -140,7 +140,7 @@
           "y": 0.5
         },
         "emitRate": 5,
-        "localSpace": false,
+        "localSpace": true,
         "emitShape": "CIRCLE",
         "emitRadius": 0,
         "animation": {
