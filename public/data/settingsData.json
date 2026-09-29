@@ -13,7 +13,7 @@
       "expanded": true
     }
   },
-  "baseEntities": [
+  "basePrefabs": [
     {
       "name": "ANY",
       "texture": "NAME"
@@ -40,7 +40,7 @@
       }
     }
   ],
-  "entities": [
+  "prefabs": [
     {
       "name": "player",
       "baseClass": "ArcadeObject",
@@ -62,19 +62,19 @@
     },
     {
       "name": "grassLeft",
-      "entity": "block"
+      "extends": "block"
     },
     {
       "name": "grassMid",
-      "entity": "block"
+      "extends": "block"
     },
     {
       "name": "grassRight",
-      "entity": "block"
+      "extends": "block"
     },
     {
       "name": "coinGold",
-      "entity": "collectable"
+      "extends": "collectable"
     },
     {
       "name": "flagYellow",
