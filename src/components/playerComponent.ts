@@ -1,4 +1,4 @@
-import { AnimationComponent, Component, Inspector, InspectorField } from "bare-engine";
+import { AnimationComponent, Component, Inspector, InspectorField, SerializeField } from "bare-engine";
 import { ArcadeObject } from "bare-engine/arcade";
 import { Data } from "../generated/assets";
 
@@ -14,11 +14,11 @@ export class PlayerComponent extends Component<ArcadeObject>
     state:State;
     animationComponent: AnimationComponent;
 
-    @InspectorField
+    @SerializeField
     @Inspector.Limit(0, Infinity)
     moveSpeed = 500;
 
-    @InspectorField
+    @SerializeField
     jump = -1600;
 
     @InspectorField
