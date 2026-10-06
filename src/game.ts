@@ -25,7 +25,6 @@ export class Game extends Scene
     async OnAwake()
     {
         // IMPORT THIS TO ENABLE PHYSICS
-        bare.AddClass(ArcadeObject);
         bare.AddClass(ArcadePhysicsController);
 
         // IMPORT COMPONENTS WE USE IN THE LEVEL
