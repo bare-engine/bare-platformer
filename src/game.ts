@@ -22,7 +22,7 @@ export class Game extends Scene
         window.game = this;
     }
     
-    async OnAwake()
+    override async OnAwake()
     {
         // IMPORT THIS TO ENABLE PHYSICS
         bare.AddClass(ArcadePhysicsController);
@@ -39,7 +39,7 @@ export class Game extends Scene
     }
 
     //THIS METHOD IS ALSO CALLED ON RESTART
-    async OnStart()
+    override async OnStart()
     {
         // LOAD THE LEVEL
         await this.LoadLevel('level');

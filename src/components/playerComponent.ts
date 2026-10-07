@@ -29,13 +29,13 @@ export class PlayerComponent extends Component<ArcadeObject>
         set: (state: string) => this.SetState(State[state as keyof typeof State])
     };
 
-    OnAdded(): void
+    override OnAdded(): void
     {
         this.animationComponent = this.go.GetComponent(AnimationComponent)!;
         this.SetState(State.Idle);
     }
 
-    OnUpdate(deltaTime: number): void
+    override OnUpdate(deltaTime: number): void
     {
         // WALK
         var moveX = (dir:number) =>

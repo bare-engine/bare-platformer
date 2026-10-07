@@ -11,7 +11,7 @@ export class UI extends Scene
         super({UI: true, persistent: true});
     }
     
-    async OnAwake()
+    override async OnAwake()
     {
         // LOAD CUSTOM FONT
         await Promise.all([
