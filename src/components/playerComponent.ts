@@ -11,8 +11,8 @@ enum State
 
 export class PlayerComponent extends Component<ArcadeObject>
 {
-    state:State;
-    animationComponent: AnimationComponent;
+    state!: State;
+    animationComponent!: AnimationComponent;
 
     @SerializeField
     @Inspector.Limit(0, Infinity)
@@ -31,7 +31,7 @@ export class PlayerComponent extends Component<ArcadeObject>
 
     OnAdded(): void
     {
-        this.animationComponent = this.go.GetComponent(AnimationComponent);
+        this.animationComponent = this.go.GetComponent(AnimationComponent)!;
         this.SetState(State.Idle);
     }
 

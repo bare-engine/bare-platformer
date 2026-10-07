@@ -11,7 +11,7 @@ declare global
 
 export class Game extends Scene
 {
-    uiScene: UI;
+    uiScene!: UI;
     
     constructor()
     {
@@ -71,7 +71,7 @@ export class Game extends Scene
         });
 
         // LISTEN TO PLAYER COLLISION - LOSE WHEN COLLIDES WITH SOMETHING TAGGED AS DANGEROUS (SAW)
-        var player = bare.object.GetByName("player");
+        var player = bare.object.GetByName("player")!;
         player.events.on(BareEvent.collision_start, (object) => {
             if (object.tags.includes("dangerous"))
             {
@@ -85,8 +85,8 @@ export class Game extends Scene
     {
         bare.sound.Play("win", {volume: .2});
 
-        var flag = bare.object.GetByName("flagYellow");
-        var anim = flag.GetComponent(AnimationComponent);
+        var flag = bare.object.GetByName("flagYellow")!;
+        var anim = flag.GetComponent(AnimationComponent)!;
         anim.Play('up');
     }
 

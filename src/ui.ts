@@ -3,8 +3,8 @@ import { GameObject, Scene, TextObject } from "bare-engine";
 export class UI extends Scene
 {
     coins: number = 0;
-    coinObj: GameObject;
-    coinTextObj: TextObject;
+    coinObj!: GameObject;
+    coinTextObj!: TextObject;
     
     constructor()
     {
