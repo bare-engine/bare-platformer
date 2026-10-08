@@ -7,6 +7,7 @@
 node_modules/
 dist/
 public/initial/generated/
+src/generated/
 
 # Compiled Java class files
 *.class
@@ -59,4 +60,3 @@ Thumbs.db
 webpack/.webpack_cache/
 stats.json
 dist.zip
-src/generated/
