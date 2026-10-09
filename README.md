@@ -31,3 +31,4 @@
 <br>
 <h3> On asset streaming</h3>
 All the level and animation images are streamed in, to showcase the feature. However, this is not necessarily the fastest. Pre-loading an atlas can be faster (see <a href="https://github.com/bare-engine/bare-rpg">Bare RPG</a>). It depends on your use case.<br><br>If you're loading lots of new assets every level, you might want to stream them in (place them in public/images/), else you preload them (place them in texturePackImages). You could also combine both approaches and preload your most used images and streaming in the rest. 
+<br><br>To try preloading here: rename <code>texturePackImagesDisabled</code> to <code>texturePackImages</code> and run <code>npm run dev</code>. The images are packed into an atlas and all assets are now preloaded.
