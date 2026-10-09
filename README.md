@@ -25,6 +25,7 @@
     <li>Asset streaming</li>
     <li>Custom events</li>
     <li>Particles</li>
+    <li>9 Slice</li>
     <li>Inspector buttons</li>
     <li>Dynamic resolution - filling window</li>
 </ul>

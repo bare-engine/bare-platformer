@@ -73,6 +73,20 @@
       "extends": "block"
     },
     {
+      "name": "grassBlock",
+      "extends": "block",
+      "components": {
+        "nineSlice": {
+          "left": 64,
+          "top": 56,
+          "right": 64,
+          "bottom": 16,
+          "tileX": true,
+          "tileY": true
+        }
+      }
+    },
+    {
       "name": "coinGold",
       "extends": "collectable"
     },
