@@ -22,7 +22,7 @@ export class CollectableComponent extends Component<ArcadeObject>
     async Collect()
     {
         // SEND OUT CUSTOM EVENT - Game.ts LISTENS TO THIS
-        bScene.events.emit("collectableCollected", {collectable: this.go});
+        this.scene.events.emit("collectableCollected", {collectable: this.go});
 
         // GET COLLECTABLE
         bare.sound.Play("coin", {volume: .1});
