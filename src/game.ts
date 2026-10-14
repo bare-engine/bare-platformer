@@ -65,7 +65,8 @@ export class Game extends Scene
             totalCoins--;
             if (totalCoins == 0)
             {
-                await wait(.4);
+                if (!await this.Wait(.4))
+                    return;
                 this.Win();
             }
         });
