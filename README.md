@@ -1,7 +1,9 @@
 # Bare Platformer - Example
 Made with the <a href="https://github.com/bare-engine/bare-engine">Bare Engine</a>.
 <br><br>
-<img width="800" height="733" alt="platformer" src="https://github.com/user-attachments/assets/cb075741-8f79-462f-965e-88a13c4ec535" />
+<b><a href="https://bare-engine.github.io/bare-platformer/">▶ Play it in your browser</a></b>
+<br><br>
+<a href="https://bare-engine.github.io/bare-platformer/"><img width="800" height="733" alt="platformer" src="https://github.com/user-attachments/assets/cb075741-8f79-462f-965e-88a13c4ec535" /></a>
 
 <h2>Getting Started</h2>
 <ol>
