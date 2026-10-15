@@ -17,7 +17,7 @@ export class Game extends Scene
     {
         // TELLING BARE ABOUT OUR SETTINGS
         // EG: HOW ENTITIES ARE SETUP (player/block/collectable)
-        super(settingsData);
+        super({ settingsData: settingsData });
 
         window.game = this;
     }
